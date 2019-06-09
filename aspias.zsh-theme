@@ -1,4 +1,6 @@
 ASPIAS_NAMESPACE_COLOR=${ASPIAS_NAMESPACE_COLOR:=yellow}
+ASPIAS_MCOLOR=${ASPIAS_MCOLOR:=white}
+
 if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="white"; fi
 
 if [ -z "$ASPIAS_NAMESPACE" ]; then
@@ -7,7 +9,7 @@ else
 	PROMPT_PREFIX="%B[%{$fg[$ASPIAS_NAMESPACE_COLOR]%}${ASPIAS_NAMESPACE}%{$reset_color%}]%b "
 fi
 
-PROMPT='${PROMPT_PREFIX}%{$fg[$NCOLOR]%}%B%n@%m%b%{$reset_color%}:%{$fg[blue]%}%B%c/%b%{$reset_color%} $(git_prompt_info)%(!.#.$) '
+PROMPT='${PROMPT_PREFIX}%{$fg[$NCOLOR]%}%B%n@%{$fg[$ASPIAS_MCOLOR]%}%m%b%{$reset_color%}:%{$fg[blue]%}%B%c/%b%{$reset_color%} $(git_prompt_info)%(!.#.$) '
 #RPROMPT='[%*]'
 
 # git theming
