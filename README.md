@@ -72,9 +72,5 @@ export ASPIAS_NAMESPACE=myproject
 
 - Zsh
 - Oh My Zsh
-- Git (for Git integration)
-
-## License
-
-This theme is released under the MIT License.</content>
+- Git (for Git integration)</content>
 <parameter name="filePath">/home/lotherk/Sync/code/aspias-zsh-theme/README.md
