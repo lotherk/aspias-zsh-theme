@@ -14,7 +14,14 @@ else
 	ASPIAS_HOST_COLOR=${ASPIAS_HOST_COLOR:=white}
 fi
 
-if [ $UID -eq 0 ]; then ASPIAS_USER_COLOR="${ASPIAS_ROOT_COLOR}"; fi
+# Consistent coloring based on hostname length
+if [ "$ASPIAS_HOST_COLOR_MODE" = "hostname_length" ]; then
+  colors=(red green yellow blue magenta cyan white)
+  host_len=${#$(hostname)}
+  ASPIAS_HOST_COLOR=${colors[$((host_len % ${#colors[@]} + 1))]}
+fi
+
+if [ "$UID" -eq 0 ]; then ASPIAS_USER_COLOR="${ASPIAS_ROOT_COLOR}"; fi
 
 if [ -z "$ASPIAS_NAMESPACE" ]; then
 	PROMPT_PREFIX=""
